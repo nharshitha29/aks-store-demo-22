@@ -20,7 +20,7 @@ jobs:
               working-directory: src/store-front
 
             - name: Run tests
-              run: npm test 
+              run: npm test:unit 
               working-directory: src/store-front
             
             - name: Zip build output

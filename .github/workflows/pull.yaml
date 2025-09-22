@@ -21,12 +21,17 @@ jobs:
 
             - name: Zip build output
               run: zip -r dist.zip src/store-front/dist/
-            - name: publish test results
+            
+            - name: Run tests
+              run: npm test -- --ci --reporters=jest-junit
+              working-directory: src/store-front
+
+            - name: Publish test results
               uses: EnricoMi/publish-unit-test-result-action@v2
+              if: always()   # ensure results are published even if tests fail
               with:
-               files : |
-                  src/store-front/dist/**/*.xml
-                 
+                files: src/store-front/junit.xml
+            
             - name: Upload artifact
               uses: actions/upload-artifact@v4
               with:

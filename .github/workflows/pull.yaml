@@ -20,7 +20,7 @@ jobs:
               working-directory: src/store-front
 
             - name: Run tests
-              run: npx jest --ci --reporters=jest-junit --outputFile=src/store-front/junit.xml
+              run: npm test 
               working-directory: src/store-front
             
             - name: Zip build output
@@ -28,7 +28,6 @@ jobs:
             
             - name: Publish test results
               uses: EnricoMi/publish-unit-test-result-action@v2
-              if: always()   # ensure results are published even if tests fail
               with:
                 files: src/store-front/junit.xml
             

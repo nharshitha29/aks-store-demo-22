@@ -20,7 +20,7 @@ jobs:
               working-directory: src/store-front
 
             - name: Run tests
-              run: npm test-results -- --ci --reporters=jest-junit
+              run: npx jest --ci --reporters=jest-junit --outputFile=src/store-front/junit.xml
               working-directory: src/store-front
             
             - name: Zip build output

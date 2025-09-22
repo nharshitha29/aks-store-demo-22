@@ -26,10 +26,7 @@ jobs:
             - name: Zip build output
               run: zip -r dist.zip src/store-front/dist/
             
-            - name: Publish test results
-              uses: EnricoMi/publish-unit-test-result-action@v2
-              with:
-                files: src/store-front/junit.xml
+            
             
             - name: Upload artifact
               uses: actions/upload-artifact@v4

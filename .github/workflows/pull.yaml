@@ -28,7 +28,7 @@ jobs:
               with:
                  files: |
                 
-                    /dist.zip/src/store-front/dist/
+                    /dist.zip/src/store-front/dist/*.jpg
               
             - name: Upload artifact
               uses: actions/upload-artifact@v4

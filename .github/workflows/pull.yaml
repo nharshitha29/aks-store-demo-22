@@ -24,7 +24,7 @@ jobs:
               uses: EnricoMi/publish-unit-test-result-action@v2
               with:
                  files: |
-                    **/dist/surefire-reports/*.xml
+                    dist.zip
              
               
             - name: Upload artifact

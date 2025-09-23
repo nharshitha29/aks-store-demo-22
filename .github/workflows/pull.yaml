@@ -28,7 +28,7 @@ jobs:
               with:
                  files: |
                 
-                    **/src/store-front/dist/*.html
+                    /src/store-front/dist/index.html/
              
               
             - name: Upload artifact

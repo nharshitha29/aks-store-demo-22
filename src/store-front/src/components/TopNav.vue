@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useCartStore } from '@/stores'
+import { useCartStore } from "@/stores"
 
 const cartStore = useCartStore()
 const isNavOpen = ref(false)

@@ -20,6 +20,11 @@ jobs:
               working-directory: src/store-front
             - name: Zip build output
               run: zip -r dist.zip src/store-front/dist/
+            - name: publish test results
+              uses: EnricoMi/publish-unit-test-result-action@v2
+              with:
+                 files: |
+                    **/dist/surefire-reports/*.xml
              
               
             - name: Upload artifact

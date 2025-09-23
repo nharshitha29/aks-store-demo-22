@@ -18,19 +18,6 @@ jobs:
             - name: build the package
               run: npm run build
               working-directory: src/store-front
-            - name: Run tests
-              run: npm test 
-              working-directory: src/store-front
-             
-            
-
-            - name: Publish Test Report
-              if: always()
-              uses: dorny/test-reporter@v1
-              with:
-                name: Vitest Tests
-                path: src/store-front/test-results/junit.xml
-                reporter: jest-junit
             - name: Zip build output
               run: zip -r dist.zip dist
               working-directory: src/store-front

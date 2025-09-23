@@ -18,16 +18,19 @@ jobs:
             - name: build the package
               run: npm run build
               working-directory: src/store-front
-            - name: run test
-              run: npm test:store-front
+            - name: Run tests
+              run: npm test -- --ci --reporters=default --reporters=jest-junit
               working-directory: src/store-front
-
-            
+              env:
+                JEST_JUNIT_OUTPUT_DIR: ./test-results
             - name: Zip build output
               run: zip -r dist.zip . -i dist
-            
-            
-            
+            - name: Upload test results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                name: test-results
+                path: src/store-front/test-results
             - name: Upload artifact
               uses: actions/upload-artifact@v4
               with:

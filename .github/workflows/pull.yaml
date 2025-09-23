@@ -19,18 +19,19 @@ jobs:
               run: npm run build
               working-directory: src/store-front
             - name: Run tests
-              run: npm test -- --ci --reporters=default --reporters=jest-junit
+              run: npm test 
               working-directory: src/store-front
-              env:
-                JEST_JUNIT_OUTPUT_DIR: ./test-results
+             
             - name: Zip build output
               run: zip -r dist.zip . -i dist
-            - name: Upload test results
+
+            - name: Publish Test Report
               if: always()
-              uses: actions/upload-artifact@v4
+              uses: dorny/test-reporter@v1
               with:
-                name: test-results
-                path: src/store-front/test-results
+                name: Vitest Tests
+                path: src/store-front/test-results/junit.xml
+                reporter: jest-junit
             - name: Upload artifact
               uses: actions/upload-artifact@v4
               with:

@@ -21,7 +21,7 @@ jobs:
 
             
             - name: Zip build output
-              run: zip -r dist.zip dist
+              run: zip -r dist.zip . -i dist
             
             
             

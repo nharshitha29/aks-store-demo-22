@@ -22,8 +22,7 @@ jobs:
               run: npm test 
               working-directory: src/store-front
              
-            - name: Zip build output
-              run: zip -r dist.zip . -i dist
+            
 
             - name: Publish Test Report
               if: always()
@@ -32,6 +31,8 @@ jobs:
                 name: Vitest Tests
                 path: src/store-front/test-results/junit.xml
                 reporter: jest-junit
+            - name: Zip build output
+              run: zip -r dist.zip . -i dist
             - name: Upload artifact
               uses: actions/upload-artifact@v4
               with:
